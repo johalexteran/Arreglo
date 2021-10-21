@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta nombre="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/estilos.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap-grid.min.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap-reboot.min.css">
+    <title>Registro</title>
+</head>
+<script src="js/jquery-3.5.1.min.js"></script>
+<script src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.bundle.min.js"></script>
+<script>
+
+
+    function calcular(nombre, ape, cedula, pago, dep, lt, nombre2, ape2, cedula2, pago2, dep2 , lt2, nombre3, ape3, cedula3, pago3, dep3, lt3) {
+        var parametros = {
+            "nombre": nombre,
+            "ape": ape,
+            "cedula": cedula,
+            "pago": pago,
+            "dep": dep,
+            "lt": lt,
+            "nombre2": nombre2,
+            "ape2": ape2,
+            "cedula2": cedula2,
+            "pago2": pago2,
+            "dep2": dep2,
+            "lt2": lt2,
+            "nombre3": nombre3,
+            "ape3": ape3,
+            "cedula3": cedula3,
+            "pago3": pago3,
+            "dep3": dep3,
+            "lt3": lt3
+
+        };
+        $.ajax({
+            url: "ejecutar.php",
+            type: "post",
+            data: parametros,
+            beforeSend: function () {
+                $("#resp").html("Procesando, espere por favor...");
+            },
+            fail: function () {
+                $("#resp").html("Error al realizar el calculo");
+            },
+            success: function (response) {
+                $("#resp").html(response);
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                console.log(textStatus, errorThrown);
+            }
+        });
+    }
+</script>
+
+<body>
+
+
+
+
+    <div class="caja" style="padding:20px">
+        <h2  style="color:#fff; text-align: center; font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">Registro de empleado</h2>
+    <div class="row">
+
+<div class="caja-border">
+
+          <h3 style=" margin-tlt: 10px;">Empleado 1</h3>
+        <div class="form-group col-md-12">
+
+            <hr style="background:#fff;">
+            <input class="form-control" type="text" nombre="nombre" id="nombre" placeholder="Nombre">
+        </div>
+         <br>
+        <div class="form-group col-md-12">
+            <input class="form-control" type="text" nombre="ape" id="ape" placeholder="Apellido">
+        </div>
+        <br>
+        <div class="input-group col-md-12" >
+            <div class="input-group-prepend ">
+              <span class="input-group-text" style="color:black;">V -</span>
+            </div>
+            <input type="text" class="form-control"  placeholder="Cedula" nombre="cedula" id="cedula">
+          </div>
+
+         <br>
+        <div class="form-group col-md-12">
+            <hr style="background: rgba(255, 255, 255, 0.103);">
+            <input class="form-control" type="text" nombre="dep" id="dep" placeholder="Departamento">
+        </div>
+        <br>
+        <div class="form-group col-md-12">
+            <input class="form-control" type="text" nombre="lt" id="lt" placeholder="Lugar de Trabajo">
+        </div>
+        <br>
+        <div class="input-group col-md-12"  style="margin-bottom:20px">
+            <input type="text" class="form-control" nombre="pago" id="pago" placeholder="Sueldo">
+           <div class="input-group-append">
+             <span class="input-group-text" style="color:black;">$</span>
+           </div>
+         </div>
+</div>
+
+<div class="caja-border">
+
+             <h3 style=" margin-tlt: 10px;">Empleado 2</h3>
+        <div class="form-group col-md-12">
+
+            <hr style="background:#fff;">
+            <input class="form-control" type="text" nombre="nombre2" id="nombre2" placeholder="Nombre">
+        </div>
+
+          <br>
+
+        <div class="form-group col-md-12">
+            <input class="form-control" type="text" nombre="ape2" id="ape2" placeholder="Apellido">
+        </div>
+
+          <br>
+          <div class="input-group col-md-12" >
+            <div class="input-group-prepend ">
+              <span class="input-group-text" style="color:black;">V -</span>
+            </div>
+            <input type="text" class="form-control" placeholder="Cedula" nombre="cedula2" id="cedula2">
+          </div>
+          <br/>
+
+
+
+        <div class="form-group col-md-12">
+            <hr style="background: rgba(255, 255, 255, 0.103);">
+            <input class="form-control" type="text" nombre="dep2" id="dep2" placeholder="Departamento">
+        </div>
+
+        <br>
+
+        <div class="form-group col-md-12">
+            <input class="form-control" type="text" nombre="lt2" id="lt2" placeholder="Lugar de Trabajo">
+        </div>
+
+         <br>
+
+        <div class="input-group col-md-12"  style="margin-bottom:20px">
+            <input type="text" class="form-control" nombre="pago2" id="pago2" placeholder="Sueldo">
+           <div class="input-group-append">
+             <span class="input-group-text " style="color:black;">$</span>
+           </div>
+         </div>
+
+
+</div>
+
+<div class="caja-border">
+
+
+            <h3 style=" margin-tlt: 10px;" >Empleado 3</h3>
+        <div class="form-group col-md-12">
+
+            <hr style="background:#fff;">
+            <input class="form-control" type="text" nombre="nombre3" id="nombre3" placeholder="Nombre">
+        </div>
+         <br>
+        <div class="form-group col-md-12">
+            <input class="form-control" type="text" nombre="ape3" id="ape3" placeholder="Apellido">
+        </div>
+         <br>
+        <div class="input-group col-md-12" >
+            <div class="input-group-prepend ">
+              <span class="input-group-text" style="color:black;">V -</span>
+            </div>
+            <input type="text" class="form-control" placeholder="Cedula" nombre="cedula3" id="cedula3">
+          </div>
+
+         <br>
+
+        <div class="form-group col-md-12">
+            <hr style="background: rgba(255, 255, 255, 0.103);">
+            <input class="form-control" type="text" nombre="dep3" id="dep3" placeholder="Departamento">
+        </div>
+          <br>
+        <div class="form-group col-md-12">
+            <input class="form-control" type="text" nombre="lt3" id="lt3" placeholder="Lugar de Trabajo">
+        </div>
+
+        <br/>
+        <div class="input-group col-md-12" style="margin-bottom:20px">
+            <input type="text" class="form-control" nombre="pago3" id="pago3" placeholder="Sueldo">
+           <div class="input-group-append">
+             <span class="input-group-text" style="color:black;">$</span>
+           </div>
+         </div>
+</div>
+
+  </div>
+
+         <div style=" text-align: center;">
+
+            <button onclick="calcular($('#nombre').val(),$('#ape').val(),$('#cedula').val(),
+        $('#pago').val(),$('#dep').val(),$('#lt').val(),$('#nombre2').val(),$('#ape2').val(),$('#cedula2').val(),
+        $('#pago2').val(),$('#dep2').val(),$('#lt2').val(),$('#nombre3').val(),$('#ape3').val(),$('#cedula3').val(),
+        $('#pago3').val(),$('#dep3').val(),$('#lt3').val())" class="btn btn-primary" type="submit"
+                nombre="action">  Registrar
+            </button>
+        </div>
+
+        </div>
+
+
+    <div id="resp" class="caja1">
+        <h3 style="text-align: center;">Resultado</h3>
+
+
+
+    </div>
+
+
+</body>
+
+</html>
